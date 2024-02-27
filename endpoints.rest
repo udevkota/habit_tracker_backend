@@ -1,0 +1,22 @@
+### GET all users
+GET http://localhost:3000/everything
+
+### POST user
+POST http://localhost:3000/user
+Content-Type: application/json
+
+{
+"userName": "Bella Swan",
+"email": "bellaswan@proton.me",
+"password": "vampiresoverwerewolves"
+}
+
+### POST scheduled habit 
+POST http://localhost:3000/user/65de640e0d037b01441db970/habits
+Content-Type: application/json
+
+{
+"habitTitle": "Have horrible acting",
+"frequency": "Every day",
+"completed": false
+}
