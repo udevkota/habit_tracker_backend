@@ -1,22 +1,67 @@
 ### GET all users
 GET http://localhost:3000/everything
 
+### GET habit lists by user Id
+GET http://localhost:3000/habitlists/65de640e0d037b01441db970
+
+### GET response "User not found" test get one user with an object id not in the db (right length), just doesn't exist) 
+GET http://localhost:3000/habitlists/65de640e0d037b01441db972
+
+### GET response "Bad request" test get one user with an invalid user id (not the right length) 
+GET http://localhost:3000/habitlists/65de
+
+
 ### POST user
 POST http://localhost:3000/user
 Content-Type: application/json
 
 {
-"userName": "Bella Swan",
-"email": "bellaswan@proton.me",
-"password": "vampiresoverwerewolves"
+"userName": "Nick Miller",
+"email": "oldmanvibes@proton.me",
+"password": "cottoneyejoe"
 }
 
 ### POST scheduled habit 
-POST http://localhost:3000/user/65de640e0d037b01441db970/habits
+POST http://localhost:3000/user/65e0187281b5e350a7b2ff43/habits
 Content-Type: application/json
 
 {
-"habitTitle": "Have horrible acting",
-"frequency": "Every day",
+"habitTitle": "Hangout with Tran",
+"frequency": "every tuesday",
 "completed": false
 }
+
+### PATCH userName
+PATCH http://localhost:3000/habitlists/65e0187281b5e350a7b2ff43/user
+Content-Type: application/json
+
+{
+"userName": "Changed userName to Nick Millaaaa"
+}
+
+### PATCH one habit 
+PATCH http://localhost:3000/habitlists/65de640e0d037b01441db970/habits/65de6f4946fe518ea9b2b83b
+Content-Type: application/json
+
+{
+"habitTitle": "Maybe act well sometimes",
+"frequency": "everyday"
+}
+
+### PATCH one habit 
+PATCH http://localhost:3000/habitlists/65e0187281b5e350a7b2ff43/habits/65e018ca81b5e350a7b2ff49
+Content-Type: application/json
+
+{
+"habitTitle": "Write pages for my book",
+"frequency": "every other day"
+}
+
+### PATCH boolean of habit 
+PATCH http://localhost:3000/habitlists/65e0187281b5e350a7b2ff43/habits/65e018ca81b5e350a7b2ff49/status
+
+### DELETE one user  
+DELETE http://localhost:3000/habitlists/65e024c9756ae08fa6e06b3f
+
+### DELETE one habit  
+DELETE http://localhost:3000/habitlists/65de640e0d037b01441db970/habits/65de6f2346fe518ea9b2b837
